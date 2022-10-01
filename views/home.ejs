@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <script src="https://use.fontawesome.com/cffeedabf1.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-align-items-center">
+            <h1 style= "col-align-items-center"> PIET FACULTY RECORDS</h1>
+
+        </div>
+
+        <form method="post" action="/submitdetails">
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4">Name</label>
+                    <input name="tname" type="text" class="form-control" id="inputEmail4" placeholder="Name">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="teacherid">ID</label>
+                    <input name="tid" type="text" class="form-control" id="teacherid" placeholder="Your ID">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="teacherdept">Department</label>
+                    <input name="tdept" type="text" class="form-control" id="teacherdept" placeholder="Department">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="teacheremail">Email</label>
+                    <input name="tmail" type="text" class="form-control" id="teacherdept" placeholder="Email">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="doj"> D.O.J</label>
+                    <input name="tdoj" class="form-control" type="date" placeholder="Date Of Joining">
+                </div>
+
+
+
+            </div>
+            <h2>Research(Publications Last 5 Years)</h2>
+
+
+            <div class="form-row">
+
+                <div class="form-group col-md-2">
+                    <label for="inputEmail4">S.no</label>
+                    <input type="text" class="form-control" id="inputEmail4">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="teacherid">Paper Title</label>
+                    <input type="text" class="form-control" id="teacherid">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="teacherdept">Journal Name</label>
+                    <input type="text" class="form-control" id="teacherdept">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="teacheremail">Volume</label>
+                    <input type="text" class="form-control" id="teacherdept">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="doj"> Year</label>
+                    <input class="form-control" type="date" ">
+                </div>
+            </div>
+            <h2>Conferences Attended</h2>
+            <div class=" form-row">
+
+                    <div class="form-group col-md-2">
+                        <label for="inputEmail4">Conference</label>
+                        <input type="text" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="teacherid">Place of Conference</label>
+                        <input type="text" class="form-control" id="teacherid">
+                    </div>
+
+
+                    <div class="form-group col-md-2">
+                        <label for="doj"> Date</label>
+                        <input class="form-control" type="date">
+                    </div>
+                </div>
+                <h2>Paper Presentation</h2>
+                <div class="form-row">
+
+                    <div class="form-group col-md-2">
+                        <label for="inputEmail4">Paper Title</label>
+                        <input type="text" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputEmail4">Conference Name</label>
+                        <input type="text" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="teacherid">Place of Conference</label>
+                        <input type="text" class="form-control" id="teacherid">
+                    </div>
+
+
+                    <div class="form-group col-md-2">
+                        <label for="doj">Date</label>
+                        <input class="form-control" type="date">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="myFile">Upload Pdf</label>
+                        <input type="file" id="myFile" name="filename">
+                    </div>
+
+                </div>
+                <h2>Patents</h2>
+                <div class="form-row">
+
+                    <div class="form-group col-md-2">
+                        <label for="inputEmail4">Patent</label>
+                        <input type="text" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputEmail4">Published</label>
+                        <input type="text" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="teacherid">Authors</label>
+                        <input type="text" class="form-control" id="teacherid">
+                    </div>
+
+
+                    <div class="form-group col-md-2">
+                        <label for="doj">Date</label>
+                        <input class="form-control" type="date">
+                    </div>
+                </div>
+                <h2>FDP/STTP/WORKSHOP/CONDUCTED</h2>
+                <div class="form-row">
+
+                    <div class="form-group col-md-2">
+                        <label for="inputEmail4">Title</label>
+                        <input type="text" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputEmail4">Venue</label>
+                        <input type="text" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="teacherid">Organised By</label>
+                        <input type="text" class="form-control" id="teacherid">
+                    </div>
+
+
+                    <div class="form-group col-md-2">
+                        <label for="doj">Date</label>
+                        <input class="form-control" type="date" placeholder="Date Of Joining">
+                    </div>
+                </div>
+                <h2>Achievements/ Awards </h2>
+                <div class="form-row">
+
+                    <div class="form-group col-md-2">
+                        <label for="inputEmail4">Name Of Award</label>
+                        <input type="text" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputEmail4">Given By</label>
+                        <input type="text" class="form-control" id="inputEmail4">
+                    </div>
+
+
+
+                    <div class="form-group col-md-2">
+                        <label for="doj">Date</label>
+                        <input class="form-control" type="date" placeholder="Date Of Joining">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="myFile">Upload Pdf</label>
+                        <input type="file" id="myFile" name="filename">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+
+
+</body>
+
+</html>
