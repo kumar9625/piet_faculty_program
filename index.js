@@ -15,7 +15,7 @@ const { MongoClient } = require('mongodb');
 const { runInNewContext } = require('vm');
 
 const fs = require("fs");
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 1234;
 
 // excel file 
 const excelService = require("./service/excelService");
@@ -31,7 +31,6 @@ async function main() {
     const client = new MongoClient(uri);
     
     const db = client.db("Piet_Faculty_Program").collection("facultydata");
-    await client.connect();
 
     app.set('views', path.join(__dirname, '/views'));
 
@@ -105,15 +104,10 @@ async function main() {
 
     })
 
-    app.get('/home', (req, res) => {
-        res.render('home.ejs', { excelService });
-
-
-    })
-
     app.get('*', (req, res) => {
         res.render('home.ejs');
     })
+    await client.connect();
 
 }   
 
