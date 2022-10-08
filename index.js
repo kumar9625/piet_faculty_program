@@ -15,7 +15,7 @@ const { MongoClient } = require('mongodb');
 const { runInNewContext } = require('vm');
 
 const fs = require("fs");
-const PORT = process.env.PORT || 1234;
+const PORT = process.env.PORT;
 
 // excel file 
 const excelService = require("./service/excelService");
