@@ -31,7 +31,7 @@ async function main() {
     const client = new MongoClient(uri);
     
     const db = client.db("Piet_Faculty_Program").collection("facultydata");
-
+    await client.connect();
     app.set('views', path.join(__dirname, '/views'));
 
     app.use("/assets", express.static('assets'));
@@ -107,7 +107,7 @@ async function main() {
     app.get('*', (req, res) => {
         res.render('home.ejs');
     })
-    await client.connect();
+    
 
 }   
 
