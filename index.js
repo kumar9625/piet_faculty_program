@@ -5,9 +5,9 @@ require('dotenv').config();
 const app = express();
 var cloudinary = require('cloudinary').v2;
 cloudinary.config({
-    cloud_name: process.env.cloud_name,
-    api_key: process.env.api_key,
-    api_secret: process.env.api_secret
+    cloud_name: 'dunlvkcoz',
+    api_key: '721921499293763',
+    api_secret: '2_0mvW1DIHFUI6vwn2yEIK9TJq4'
 });
 
 const path = require('path');
@@ -21,14 +21,13 @@ const PORT = process.env.PORT || 1234;
 const excelService = require("./service/excelService");
 
 async function main() {
-    console.log(process.env.mongouri);
     app.set('view engine', 'ejs');
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
 
 
     var ObjectId = require('mongodb').ObjectId;
-    const uri =    process.env.mongouri;
+    const uri = "mongodb+srv://rohitverma:mongopiet@cluster0.3wi1rkb.mongodb.net/?retryWrites=true&w=majority"
     const client = new MongoClient(uri);
     await client.connect();
     const db = client.db("Piet_Faculty_Program").collection("facultydata");
