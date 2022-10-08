@@ -29,7 +29,7 @@ async function main() {
     var ObjectId = require('mongodb').ObjectId;
     const uri = "mongodb+srv://rohitverma:mongopiet@cluster0.3wi1rkb.mongodb.net/?retryWrites=true&w=majority"
     const client = new MongoClient(uri);
-    await client.connect();
+    
     const db = client.db("Piet_Faculty_Program").collection("facultydata");
 
     app.set('views', path.join(__dirname, '/views'));
@@ -104,10 +104,16 @@ async function main() {
 
     })
 
+    app.get('/home', (req, res) => {
+        res.render('home.ejs', { excelService });
+
+
+    })
+
     app.get('*', (req, res) => {
         res.render('home.ejs');
     })
-
+    await client.connect();
 
 }   
 
