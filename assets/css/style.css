@@ -80,3 +80,15 @@ form{
 
 .wrapper{max-width: 600px;height: 100vh;margin: auto;display: flex;align-items: center}.wrapper .image-holder{width: 51%}.wrapper form{width: 100%}.wizard
 .steps .current-info, .wizard >.steps .number{display: none}#wizard{min-height: 570px;background: #fff;margin-right: 60px;padding: 107px 75px 65px;margin-top: 20px;margin-bottom: 20px}
+.heading{
+    color: #000000 ;text-align: center; font-family: 'Times New Roman', Times, serif; margin-bottom: 12px;
+}
+.main{
+    color: #f0f7fc ;text-align: center; font-family: 'Times New Roman', Times, serif; margin-bottom: 12px; 
+}
+.bg{
+    background-color: #06141e; padding-top: 3%; padding-bottom: 3%;
+}
+.col{
+    background-color: #06141e;
+}

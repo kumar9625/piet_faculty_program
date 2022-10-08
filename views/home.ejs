@@ -6,192 +6,349 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-
     <script src="https://use.fontawesome.com/cffeedabf1.js"></script>
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script>
     <title>Home</title>
 </head>
 
-<body>
-    <div class="container">
+<body class="bg">
+    <div class="container form-body col">
         <div class="col-align-items-center">
-            <h1 style= "col-align-items-center"> PIET FACULTY RECORDS</h1>
+            <h3 class="main">
+                PIET FACULTY RECORD</h3>
+        </div>
+        <button class="btn-primary styled float-right" type="button" onclick=<%= excelService.getExcel() %> >Excel
+            File
+        </button>
+        <div>
+            <div class="registration-form">
+                <form method="post" action="/submitdetails">
+                    <div class="step step-1 active">
+                        <div class="form-group ">
+                            <label for="name">Name</label>
+                            <input name="tname" type="text" class="form-control item" id="name">
+                        </div>
+                        <div class="form-group ">
+                            <label for="teacherid">ID</label>
+                            <input name="tid" type="text" class="form-control item" id="teacherid">
+                        </div>
+
+                        <div class="form-group ">
+                            <label for="teacheremail">Email Address</label>
+                            <input name="tmail" type="text" class="form-control item" id="teacheremail">
+                        </div>
+                        <div class="form-group ">
+                            <label for="teacherdept">Department</label>
+                            <select id="teacherdept" name="tdept" size="0.5" class="form-control item">
+                                <option value="CSE">Computer Science and Engineering</option>
+                                <option value="CE">Civil Engineering</option>
+                                <option value="ME">Mechanical Engineering</option>
+                                <option value="ECE">Electronics and Comm. Engineering</option>
+                                <option value="TE">Textile Engineering</option>
+                                <option value="IT">Information Technology</option>
+                                <option value="ASH">Applied Science and Humanity</option>
+                                <option value="Ph">Pharmacy</option>
+                                <option value="MS">Management Studies</option>
+                                <option value="CA">Computer Applications</option>
+                                <option value="IT">Applied Science and Humanity</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="doj"> Date of Joining</label>
+                            <input name="tdoj" class="form-control item" type="date" id="doj">
+                        </div>
+                        <button type="button" class="next-btn favorite styled1">Next</button>
+                    </div>
+                    <div class="step step-2">
+                        <h3 class="heading">
+                            Research(Publications Last 5 Years)</h3>
+                        <div class="container" id="registration1">
+                            <div class="card-body">
+                                <div class="form-row" id="row1">
+
+                                    <div class="form-group ">
+                                        <label for="papertitle">Paper Title</label>
+                                        <input name="rtitle1" type="text" class="form-control item" id="papertitle">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="paperjournal">DOI</label>
+                                        <input name="doi1" type="text" class="form-control item" id="paperjournal">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="paperjournal">Indexing</label>
+                                        <input name="indexing1" type="text" class="form-control item" id="paperjournal">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="paperjournal">Journal Name</label>
+                                        <input name="rname1" type="text" class="form-control item" id="paperjournal">
+                                    </div>
+
+                                    <div class="form-group ">
+                                        <label for="papervolume">Volume</label>
+                                        <input name="rvol1" type="text" class="form-control item" id="pervolume">
+                                    </div>
+
+                                    <div class="form-group ">
+                                        <label for="ryear">Year</label>
+                                        <input name="ryear1" class="form-control item" type="number" maxlength="4"
+                                            id="ryear">
+
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="myFile">Upload Pdf</label>
+                                        <input name="pppdf1" type="file" class="form-control item" id="myFile">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn favorite styled float-right" type="button"
+                                onclick="add_more_field1()">Add
+                                more+</button>
+                        </div>
+
+                        <div>
+
+                            <button type="button" class="previous-btn favorite styled1 float-left">Prev</button>
+                            <button type="button" class="next-btn favorite styled1 float-right">Next</button>
+                        </div>
+                    </div>
+                    <div class="step step-3">
+                        <h3 class="heading">
+                            Conferences Attended/Organised</h3>
+                        <div class="container" id="registration2">
+                            <div class="card-body">
+                                <div class="form-row" id="row1">
+                                    <div class="form-group ">
+                                        <label for="teacherdept">Status</label>
+                                        <select id="teacherdept" name="cora1" size="0.5" class="form-control item">
+                                            <option value="Attended">Attended</option>
+                                            <option value="Organised">Organised</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="conf">Conference Title</label>
+                                        <input name="cname1" type="text" class="form-control item" id="conf">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confplace">Place of Conference</label>
+                                        <input name="cplace1" type="text" class="form-control item" id="cplace">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="confdate">Date</label>
+                                        <input name="cdate1" class="form-control item" type="date" id="confdate">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confplace">Place of Conference</label>
+                                        <input name="cplace1" type="text" class="form-control item" id="confplace">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="confdays"> Number Of Days</label>
+                                        <input name="cdays1" class="form-control item" type="number" maxlength="3"
+                                            id="confdays">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="cpdf">Upload Pdf</label>
+                                        <input name="cpdf1" type="file" class="form-control item" id="cpdf">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn favorite styled float-right" type="button" id="addbtn"
+                            onclick="add_more_field2()">Add
+                            more+</button>
+                        <div>
+                            <button type="button" class="previous-btn favorite styled1 float-left">Prev</button>
+                            <button type="button" class="next-btn favorite styled1 float-right">Next</button>
+                        </div>
+                    </div>
+                    <div class="step step-4">
+                        <h3 class="heading">
+                            Paper Presentation</h3>
+                        <div class="container" id="registration3">
+                            <div class="card-body">
+                                <div class="form-row" id="row1">
+                                    <div class="form-group">
+                                        <label for="paperPtitle">Paper Title</label>
+                                        <input name="pptitle1" type="text" class="form-control item" id="paperPtitle">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="paperPname">Conference Name</label>
+                                        <input name="ppname1" type="text" class="form-control item" id="paperPname">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="paperPplace">Place of Conference</label>
+                                        <input name="ppplace1" type="text" class="form-control item" id="paperPplace">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="ppdoj">Date</label>
+                                        <input name="ppdate1" class="form-control item" type="date" id="ppdoj">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="ppmyFile">Upload Pdf</label>
+                                        <input name="pppdf1" type="file" class="form-control item" id="ppmyFile">
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+                        <button class="btn favorite styled float-right" type="button" id="addbtn"
+                            onclick="add_more_field3()">Add
+                            more+</button>
+                        <div>
+                            <button type="button" class="previous-btn favorite styled1 float-left">Prev</button>
+                            <button type="button" class="next-btn favorite styled1 float-right">Next</button>
+                        </div>
+                    </div>
+                    <div class="step step-5">
+                        <h3 class="heading">
+                            Patents</h3>
+                        <div class="container" id="registration4">
+                            <div class="card-body">
+                                <div class="form-row" id="row1">
+                                    <div class="form-group">
+                                        <label for="patentname">Name Of Patent</label>
+                                        <input name="ppatent1" type="text" class="form-control item" id="patentname">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="teacherdept">Published/Granted</label>
+                                        <select id="teacherdept" name="pstatus1" size="0.5" class="form-control item">
+                                            <option value="Published">Published</option>
+                                            <option value="Granted">Granted</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="patentauth">List Of Authors</label>
+                                        <input name="pauthor1" type="text" class="form-control item" id="patentauth">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="patentdoj">Date</label>
+                                        <input name="pdate1" class="form-control item" type="patentdoj">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="ppmyFile">Upload Pdf</label>
+                                        <input name="pppdf1" type="file" class="form-control item" id="ppmyFile">
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <button class="btn favorite styled float-right" type="button" id="addbtn"
+                            onclick="add_more_field4()">Add
+                            more+</button>
+                        <div>
+                            <button type="button" class="previous-btn favorite styled1 float-left">Prev</button>
+                            <button type="button" class="next-btn favorite styled1 float-right">Next</button>
+                        </div>
+                    </div>
+                    <div class="step step-6">
+                        <h3 class="heading">
+                            FDP/STTP/WORKSHOP/CONDUCTED</h3>
+                        <div class="container" id="registration5">
+                            <div class="card-body">
+                                <div class="form-row" id="row1">
+                                    <div class="form-group">
+                                        <div class="form-group ">
+                                            <label for="teacherdept">FDP/STTP/WORKSHOP</label>
+                                            <select id="teacherdept" name="wstatus1" size="0.5"
+                                                class="form-control item">
+                                                <option value="FDP">FDP</option>
+                                                <option value="STTP">STTP</option>
+                                                <option value="WORKSHOP">WORKSHOP</option>
+                                            </select>
+                                        </div>
+                                        <label for="wsTitle">Title</label>
+                                        <input name="wtitle1" type="text" class="form-control item" id="wsTitle">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="wsVenue">Venue</label>
+                                        <input name="wvenue1" type="text" class="form-control item" id="wsVenue">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="wsOrg">Organised By</label>
+                                        <input name="worg1" type="text" class="form-control item" id="wsOrg">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="wsDoj">Date</label>
+                                        <input name="wdate1" class="form-control item" type="date"
+                                            placeholder="Date Of Joining" id="wsDoj">
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <button class="btn favorite styled float-right" type="button" id="addbtn"
+                            onclick="add_more_field5()">Add
+                            more+</button>
+                        <div>
+                            <button type="button" class="previous-btn favorite styled1 float-left">Prev</button>
+                            <button type="button" class="next-btn favorite styled1 float-right">Next</button>
+                        </div>
+                    </div>
+                    <div class="step step-7">
+                        <h3 class="heading">
+                            Achievements/ Awards</h3>
+                        <div class="container" id="registration6">
+                            <div class="card-body">
+                                <div class="form-row" id="row1">
+                                    <div class="form-group">
+                                        <label for="aName">Name Of Award</label>
+                                        <input name="aname1" type="text" class="form-control item" id="aName">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="aGiven">Given By</label>
+                                        <input class="form-control item" name="agiven1" type="text" id="aGiven">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="adoj">Date</label>
+                                        <input class="form-control item" name="adate1" type="date"
+                                            placeholder="Date Of Recieving" id="aDoj">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="anyFile">Upload Certificate</label>
+                                        <input class="form-control item" name="apdf1" type="file" id="anyFile">
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                        <button class="btn favorite styled float-right" type="button" id="addbtn"
+                            onclick="add_more_field6()">Add
+                            more+</button>
+                        <div>
+                            <button type="button" class="previous-btn favorite styled1 float-left">Prev</button>
+
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary btn btn-block create-account"
+                                style="margin: 10px;">Submit</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
 
         </div>
-
-        <form method="post" action="/submitdetails">
-            <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="inputEmail4">Name</label>
-                    <input name="tname" type="text" class="form-control" id="inputEmail4" placeholder="Name">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="teacherid">ID</label>
-                    <input name="tid" type="text" class="form-control" id="teacherid" placeholder="Your ID">
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="teacherdept">Department</label>
-                    <input name="tdept" type="text" class="form-control" id="teacherdept" placeholder="Department">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="teacheremail">Email</label>
-                    <input name="tmail" type="text" class="form-control" id="teacherdept" placeholder="Email">
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="doj"> D.O.J</label>
-                    <input name="tdoj" class="form-control" type="date" placeholder="Date Of Joining">
-                </div>
-
-
-
-            </div>
-            <h2>Research(Publications Last 5 Years)</h2>
-
-
-            <div class="form-row">
-
-                <div class="form-group col-md-2">
-                    <label for="inputEmail4">S.no</label>
-                    <input type="text" class="form-control" id="inputEmail4">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="teacherid">Paper Title</label>
-                    <input type="text" class="form-control" id="teacherid">
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="teacherdept">Journal Name</label>
-                    <input type="text" class="form-control" id="teacherdept">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="teacheremail">Volume</label>
-                    <input type="text" class="form-control" id="teacherdept">
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="doj"> Year</label>
-                    <input class="form-control" type="date" ">
-                </div>
-            </div>
-            <h2>Conferences Attended</h2>
-            <div class=" form-row">
-
-                    <div class="form-group col-md-2">
-                        <label for="inputEmail4">Conference</label>
-                        <input type="text" class="form-control" id="inputEmail4">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="teacherid">Place of Conference</label>
-                        <input type="text" class="form-control" id="teacherid">
-                    </div>
-
-
-                    <div class="form-group col-md-2">
-                        <label for="doj"> Date</label>
-                        <input class="form-control" type="date">
-                    </div>
-                </div>
-                <h2>Paper Presentation</h2>
-                <div class="form-row">
-
-                    <div class="form-group col-md-2">
-                        <label for="inputEmail4">Paper Title</label>
-                        <input type="text" class="form-control" id="inputEmail4">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="inputEmail4">Conference Name</label>
-                        <input type="text" class="form-control" id="inputEmail4">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="teacherid">Place of Conference</label>
-                        <input type="text" class="form-control" id="teacherid">
-                    </div>
-
-
-                    <div class="form-group col-md-2">
-                        <label for="doj">Date</label>
-                        <input class="form-control" type="date">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="myFile">Upload Pdf</label>
-                        <input type="file" id="myFile" name="filename">
-                    </div>
-
-                </div>
-                <h2>Patents</h2>
-                <div class="form-row">
-
-                    <div class="form-group col-md-2">
-                        <label for="inputEmail4">Patent</label>
-                        <input type="text" class="form-control" id="inputEmail4">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="inputEmail4">Published</label>
-                        <input type="text" class="form-control" id="inputEmail4">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="teacherid">Authors</label>
-                        <input type="text" class="form-control" id="teacherid">
-                    </div>
-
-
-                    <div class="form-group col-md-2">
-                        <label for="doj">Date</label>
-                        <input class="form-control" type="date">
-                    </div>
-                </div>
-                <h2>FDP/STTP/WORKSHOP/CONDUCTED</h2>
-                <div class="form-row">
-
-                    <div class="form-group col-md-2">
-                        <label for="inputEmail4">Title</label>
-                        <input type="text" class="form-control" id="inputEmail4">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="inputEmail4">Venue</label>
-                        <input type="text" class="form-control" id="inputEmail4">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="teacherid">Organised By</label>
-                        <input type="text" class="form-control" id="teacherid">
-                    </div>
-
-
-                    <div class="form-group col-md-2">
-                        <label for="doj">Date</label>
-                        <input class="form-control" type="date" placeholder="Date Of Joining">
-                    </div>
-                </div>
-                <h2>Achievements/ Awards </h2>
-                <div class="form-row">
-
-                    <div class="form-group col-md-2">
-                        <label for="inputEmail4">Name Of Award</label>
-                        <input type="text" class="form-control" id="inputEmail4">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="inputEmail4">Given By</label>
-                        <input type="text" class="form-control" id="inputEmail4">
-                    </div>
-
-
-
-                    <div class="form-group col-md-2">
-                        <label for="doj">Date</label>
-                        <input class="form-control" type="date" placeholder="Date Of Joining">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="myFile">Upload Pdf</label>
-                        <input type="file" id="myFile" name="filename">
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-
     </div>
-
+    <script src="assets/js/active.js"></script>
 
 </body>
 

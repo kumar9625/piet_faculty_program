@@ -14,6 +14,10 @@ prevBtn.forEach((button) => {
   });
 });
 
+function getexcel() {
+    alert("file saved");
+}
+
 function changeStep(btn) {
   let index = 0;
   const active = document.querySelector(".active");
