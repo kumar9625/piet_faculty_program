@@ -15,7 +15,7 @@ module.exports.getExcel = async () => {
             
             console.log(allposts);
             var model = mongoXlsx.buildDynamicModel(allposts);
-            mongoXlsx.mongoData2Xlsx(allposts, model, {path: "./Excel_Files/"}, function (err, allposts) {
+            mongoXlsx.mongoData2Xlsx(allposts, model, {path: "https://drive.google.com/drive/u/0/folders/1_8b0yX4KCfHK9MiZvFStD9wC3xpfCQok"}, function (err, allposts) {
                 console.log('File saved at:', allposts.fullPath);
             });
 

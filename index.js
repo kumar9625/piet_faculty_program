@@ -124,6 +124,12 @@ async function main() {
 
 
     })
+    app.get('/getexcelfile', (req, res) => {
+        res.send("file saved")
+       excelService.getExcel();
+
+
+    })
 
     app.get('*', (req, res) => {
         res.render('home.ejs', { excelService });

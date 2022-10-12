@@ -1,7 +1,10 @@
+
+
 const steps = Array.from(document.querySelectorAll(".registration-form form .step"));
 const nextBtn = document.querySelectorAll(".registration-form form .next-btn");
 const prevBtn = document.querySelectorAll(".registration-form form .previous-btn");
 const form = document.querySelector(".registration-form form");
+
 
 nextBtn.forEach((button) => {
   button.addEventListener("click", () => {
@@ -14,9 +17,7 @@ prevBtn.forEach((button) => {
   });
 });
 
-function getexcel() {
-    alert("file saved");
-}
+
 
 function changeStep(btn) {
   let index = 0;
