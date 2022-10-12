@@ -1,9 +1,10 @@
 const bodyParser = require('body-parser');
 const express = require("express");
 require('dotenv').config();
+const fileUpload = require('express-fileupload')
 
 const app = express();
-var cloudinary = require('cloudinary').v2;
+var cloudinary = require('cloudinary');
 cloudinary.config({
     cloud_name: 'dunlvkcoz',
     api_key: '721921499293763',
@@ -12,32 +13,46 @@ cloudinary.config({
 
 const path = require('path');
 const { MongoClient } = require('mongodb');
-const { runInNewContext } = require('vm');
 
 const fs = require("fs");
 const PORT = process.env.PORT || 1234;
-
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 // excel file 
 const excelService = require("./service/excelService");
 
 async function main() {
+    app.use(fileUpload({
+        useTempFiles: true,
+        tempFileDir: "/tmp/",
+    }));
+    app.set('views', path.join(__dirname, '/views'));
+    app.use("/assets", express.static('assets'));
     app.set('view engine', 'ejs');
-    app.use(express.urlencoded({ extended: true }));
-    app.use(express.json());
+
 
 
     var ObjectId = require('mongodb').ObjectId;
-    const uri = "mongodb+srv://rohitverma:mongopiet@cluster0.3wi1rkb.mongodb.net/?retryWrites=true&w=majority"
+
+    const { MongoClient, ServerApiVersion } = require('mongodb');
+    const uri = "mongodb+srv://rohitverma:mongopiet@cluster0.3wi1rkb.mongodb.net/?retryWrites=true&w=majority";
     const client = new MongoClient(uri);
-    
+
+    await client.connect();
     const db = client.db("Piet_Faculty_Program").collection("facultydata");
-    
+
     app.set('views', path.join(__dirname, '/views'));
 
     app.use("/assets", express.static('assets'));
 
     app.post("/submitdetails", async (req, res, next) => {
-        await client.connect();
+        // console.log(req.files);
+
+        let cres = await cloudinary.v2.uploader.upload(req.files.rpdf.tempFilePath,{ folder: 'PIET_FACULTY', public_id: `${req.body.tname}/rpaper-${req.body.rtitle}`} ,(result, err) => {
+            const datainfo = result;
+            console.log(err);
+        });
+
         const user = {
             facultyinfo: {
                 name: req.body.tname,
@@ -76,12 +91,13 @@ async function main() {
                 ws_Venue: req.body.wvenue,
                 ws_Org: req.body.worg,
                 ws_Doj: req.body.wdate
+            
             },
             awardsinfo: {
                 a_Name: req.body.aname,
                 a_Given: req.body.agiven,
                 a_doj: req.body.adate,
-                a_link: req.body.apdf
+                a_link: cres.url
             }
 
 
@@ -93,12 +109,17 @@ async function main() {
             console.log(err);
             res.status(200).json({ message: 'creating user failed!' })
         });
+        
+        // console.log(cres);
+
+
         res.redirect('/');
     });
 
 
 
-    app.get('/', (req, res) => {
+    app.get('/', async (req, res) => {
+
         res.render('home.ejs', { excelService });
 
 
@@ -107,9 +128,9 @@ async function main() {
     app.get('*', (req, res) => {
         res.render('home.ejs', { excelService });
     })
-    
 
-}   
+
+}
 
 main().catch(console.error);
 

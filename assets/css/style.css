@@ -92,3 +92,9 @@ form{
 .col{
     background-color: #06141e;
 }
+.form-group{
+    margin: 5px;
+}
+.form-control{
+    margin: 5px;
+}
