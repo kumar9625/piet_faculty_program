@@ -5,11 +5,14 @@
     "ejs": "^3.1.8",
     "expess": "^0.0.1-security",
     "express": "^4.18.1",
+    "express-fileupload": "^1.4.0",
     "expressjs": "^1.0.1",
     "fast-csv": "^4.3.6",
+    "formidable": "^2.0.1",
     "fs": "^0.0.1-security",
     "mongo-xlsx": "^1.0.12",
     "mongodb": "^4.10.0",
+    "multer-storage-cloudinary": "^4.0.0",
     "nodemon": "^2.0.20"
   },
   "name": "piet_faculty_program-main",
@@ -17,7 +20,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev" : "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

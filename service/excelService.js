@@ -1,10 +1,3 @@
-var options =  {
-    save: true,
-    sheetName: [],
-    fileName: "alwayson-report-" + new Date().getTime() + ".xlsx",
-    path: "./Excel_Files/",
-    defaultSheetName: "worksheet"
-  }
 
 const mongoXlsx = require('mongo-xlsx');
 module.exports.getExcel = async () => {
