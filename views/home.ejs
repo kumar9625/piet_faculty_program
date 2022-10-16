@@ -23,12 +23,14 @@
         <div class="col-align-items-center">
             <h3 class="main">
                 PIET FACULTY RECORD</h3>
-            
         </div>
-        
+
         <div>
             <div class="registration-form">
-                <form method="post" action="/submitdetails">
+                <form method="post" action="/submitdetails" enctype="multipart/form-data">
+                    <button class="btn-primary styled float-right" type="button" onclick=getexcel()>Excel
+                        File
+                    </button>
                     <div class="step step-1 active">
                         <div class="form-group ">
                             <label for="name">Name</label>
@@ -74,7 +76,7 @@
 
                                     <div class="form-group ">
                                         <label for="papertitle">Paper Title</label>
-                                        <input name="rtitle1" type="text" class="form-control item" id="papertitle">
+                                        <input name="rtitle" type="text" class="form-control item" id="papertitle">
                                     </div>
                                     <div class="form-group ">
                                         <label for="paperjournal">DOI</label>
@@ -101,8 +103,8 @@
 
                                     </div>
                                     <div class="form-group ">
-                                        <label for="myFile">Upload Pdf</label>
-                                        <input name="pppdf1" type="file" class="form-control item" id="myFile">
+                                        <label for="myFile">Upload Research Pdf</label>
+                                        <input name="rpdf" type="file" class="form-control item" id="myFile">
                                     </div>
 
                                 </div>
@@ -192,8 +194,8 @@
                                         <input name="ppdate1" class="form-control item" type="date" id="ppdoj">
                                     </div>
                                     <div class="form-group ">
-                                        <label for="ppmyFile">Upload Pdf</label>
-                                        <input name="pppdf1" type="file" class="form-control item" id="ppmyFile">
+                                        <label for="ppmyFile">Upload Paper Pdf</label>
+                                        <input name="ppdf" type="file" class="form-control item" id="ppmyFile">
                                     </div>
                                 </div>
 
@@ -236,8 +238,8 @@
                                         <input name="pdate1" class="form-control item" type="patentdoj">
                                     </div>
                                     <div class="form-group ">
-                                        <label for="ppmyFile">Upload Pdf</label>
-                                        <input name="pppdf1" type="file" class="form-control item" id="ppmyFile">
+                                        <label for="ppmyFile">Upload Patent Certificate</label>
+                                        <input name="ptpdf" type="file" class="form-control item" id="ppmyFile">
                                     </div>
 
                                 </div>
@@ -339,6 +341,7 @@
                         <div>
                             <button type="submit" class="btn btn-primary btn btn-block create-account"
                                 style="margin: 10px;">Submit</button>
+                                
                         </div>
                     </div>
 
@@ -347,6 +350,12 @@
 
         </div>
     </div>
+    <script>
+        function getexcel() {
+            window.location.href="/getexcelfile"
+            alert("file saved");
+        }
+    </script>
     <script src="assets/js/active.js"></script>
 
 </body>
