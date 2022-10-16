@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require("express");
-require('dotenv').config();
+//require('dotenv').config();
 const fileUpload = require('express-fileupload')
 
 const app = express();
@@ -47,11 +47,45 @@ async function main() {
 
     app.post("/submitdetails", async (req, res, next) => {
         // console.log(req.files);
+        if (req.files) {
+            if (req.body.rtitle) {
+                let cres = await cloudinary.v2.uploader.upload(req.files.rpdf.tempFilePath, { folder: 'PIET_FACULTY', public_id: `${req.body.tname}/rpaper-${req.body.rtitle}` }, (result, err) => {
+                    const datainfo = result;
+                    console.log(err);
+                });
+            }
 
-        let cres = await cloudinary.v2.uploader.upload(req.files.rpdf.tempFilePath,{ folder: 'PIET_FACULTY', public_id: `${req.body.tname}/rpaper-${req.body.rtitle}`} ,(result, err) => {
-            const datainfo = result;
-            console.log(err);
-        });
+            if (req.body.cname1) {
+                let ccof = await cloudinary.v2.uploader.upload(req.files.cpdf1.tempFilePath, { folder: 'PIET_FACULTY', public_id: `${req.body.tname}/conference-${req.body.cname1}` }, (result, err) => {
+                    const datainfo = result;
+                    console.log( err);
+                });
+            }
+            if (req.body.pptitle1) {
+                let cpaper = await cloudinary.v2.uploader.upload(req.files.ppdf.tempFilePath, { folder: 'PIET_FACULTY', public_id: `${req.body.tname}/PPresentation-${req.body.pptitle1}` }, (result, err) => {
+                    const datainfo = result;
+                    console.log( err);
+                });
+            }
+            if (req.body.ppatent1) {
+                let cpatent = await cloudinary.v2.uploader.upload(req.files.ptpdf.tempFilePath, { folder: 'PIET_FACULTY', public_id: `${req.body.tname}/patents-${req.body.ppatent1}` }, (result, err) => {
+                    const datainfo = result;
+                    console.log( err);
+                });
+            }
+            if (req.body.aname1) {
+                let cawards = await cloudinary.v2.uploader.upload(req.files.apdf1.tempFilePath, { folder: 'PIET_FACULTY', public_id: `${req.body.tname}/awards-${req.body.aname1}` }, (result, err) => {
+                    const datainfo = result;
+                    console.log( err);
+                });
+            }
+
+
+        }
+
+
+
+
 
         const user = {
             facultyinfo: {
@@ -91,13 +125,13 @@ async function main() {
                 ws_Venue: req.body.wvenue,
                 ws_Org: req.body.worg,
                 ws_Doj: req.body.wdate
-            
+
             },
             awardsinfo: {
                 a_Name: req.body.aname,
                 a_Given: req.body.agiven,
                 a_doj: req.body.adate,
-                a_link: cres.url
+
             }
 
 
@@ -109,7 +143,7 @@ async function main() {
             console.log(err);
             res.status(200).json({ message: 'creating user failed!' })
         });
-        
+
         // console.log(cres);
 
 
@@ -126,7 +160,7 @@ async function main() {
     })
     app.get('/getexcelfile', (req, res) => {
         res.send("file saved")
-       excelService.getExcel();
+        excelService.getExcel();
 
 
     })
